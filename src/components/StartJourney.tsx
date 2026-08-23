@@ -91,7 +91,7 @@ function StartJourney() {
           <article className="training-offer training-offer-male reveal" ref={maleOfferRef}>
             <div className="training-offer-content">
               <p className="offer-label offer-label-start">CHƯA BIẾT</p>
-<h3>BẮT ĐẦU TỪ ĐÂU?</h3>
+<h3>BẮT ĐẦU<br />TỪ ĐÂU?</h3>
               <div className="offer-price">
                 <span>3 BUỔI PT<br />TRẢI NGHIỆM</span>
                 <strong>500K</strong>
