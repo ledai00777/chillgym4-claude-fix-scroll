@@ -32,10 +32,10 @@ const reviews: Review[] = [
     source: 'Google Review',
   },
   {
-    name: 'TẤN PHÁT',
+    name: 'THAO LUONG',
     rating: 5,
     date: 'THÁNG 02, 2024',
-    review: 'Phòng tập có năng lượng tốt, nhân viên hỗ trợ nhanh và không gian khiến mình muốn quay lại mỗi ngày.',
+    review: 'Phòng mới vừa chill vừa đẹp, WC sạch sẽ thơm tho, đặc biệt PT ở đây siêu dễ thương và take care khách rất tốt. Mình tập ở đây với PT gần 2 tháng đã giảm đc gần 5kg và ng cũng săn chắc hơn.',
     source: 'Google Review',
   },
   {
