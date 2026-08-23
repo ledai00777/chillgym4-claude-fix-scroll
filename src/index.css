@@ -504,3 +504,7 @@ h1 em { color: #8a9b55; font-style: normal; }
   .contact-map { border-color: rgba(138, 155, 85, .55); }
   .footer-slogan-line, .footer-links a::after, .footer-links a, .footer-column address a { transition: none; }
 }
+/* Extra spacing between CHƯA BIẾT and BẮT ĐẦU? */
+.training-offer-male .offer-label {
+  margin-bottom: 28px !important;
+}
