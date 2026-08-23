@@ -430,6 +430,9 @@ h1 em { color: #8a9b55; font-style: normal; }
   .training-offer-content h3 { margin: 12px 0 34px; font-size: clamp(38px, 11vw, 58px); }
   .offer-price { margin-bottom: 30px; }
   .training-offer-male .training-offer-content { order: -1; padding-bottom: 42px; }
+  .training-offer-male .offer-label {
+  margin-bottom: 20px;
+}
   .training-offer + .training-offer { margin-top: 82px; }
   .coaches-section { padding: 96px 22px 46px; }
   .coaches-intro { margin-bottom: 56px; text-align: left; }
