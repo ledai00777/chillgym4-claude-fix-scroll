@@ -11,7 +11,7 @@ type Review = {
 
 const reviews: Review[] = [
   {
-    name: 'MINH ANH',
+    name: 'KIM NGÂN',
     rating: 5,
     date: 'THÁNG 05, 2024',
     review: 'Không gian sạch, thoáng và mọi người ở đây rất thân thiện. Mình tập đều hơn từ khi bắt đầu tại Chill Gym.',
