@@ -89,12 +89,14 @@ h1 em { color: #8a9b55; font-style: normal; }
 .site-page { background: #0b0c0a; overflow-x: hidden; }
 #giới-thiệu, #thay-đổi, #môi-trường-tập-luyện, #bat-dau-hanh-trinh, #personal-training, #dong-hanh-cung-ban, #địa-chỉ { scroll-margin-top: 104px; }
 
-.floating-contact { position: fixed; z-index: 110; top: 50%; right: clamp(12px, 2vw, 28px); display: flex; flex-direction: column; gap: 12px; transform: translateY(-50%); }
+.floating-contact { position: fixed; z-index: 110; right: clamp(12px, 2vw, 28px); bottom: clamp(20px, 4vw, 36px); display: flex; flex-direction: column; gap: 12px; opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .6s cubic-bezier(.22, .61, .36, 1), transform .6s cubic-bezier(.22, .61, .36, 1); }
+.floating-contact.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .floating-contact-btn { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid rgba(138, 155, 85, .72); border-radius: 50%; background: rgba(11, 12, 10, .88); color: #f2f1ec; box-shadow: 0 8px 24px rgba(0, 0, 0, .2); backdrop-filter: blur(10px); transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease; }
 .floating-contact-btn:hover { background: #8a9b55; border-color: #8a9b55; color: #0b0c0a; transform: translateX(-3px); }
-.floating-contact-btn:nth-child(1) { animation: contact-wiggle 5.6s 1.4s ease-in-out infinite; }
-.floating-contact-btn:nth-child(2) { animation: contact-wiggle 5.6s 1.65s ease-in-out infinite; }
-.floating-contact-btn:nth-child(3) { animation: contact-wiggle 5.6s 1.9s ease-in-out infinite; }
+.floating-contact.is-visible .floating-contact-btn:nth-child(1) { animation: contact-wiggle 5.6s 1.4s ease-in-out infinite; }
+.floating-contact.is-visible .floating-contact-btn:nth-child(2) { animation: contact-wiggle 5.6s 1.65s ease-in-out infinite; }
+.floating-contact.is-visible .floating-contact-btn:nth-child(3) { animation: contact-wiggle 5.6s 1.9s ease-in-out infinite; }
+.floating-contact.is-visible .floating-contact-btn:nth-child(4) { animation: contact-wiggle 5.6s 2.15s ease-in-out infinite; }
 @keyframes contact-wiggle { 0%, 86%, 100% { transform: translateX(0); } 88% { transform: translateX(-2px) rotate(-2deg); } 90% { transform: translateX(2px) rotate(2deg); } 92% { transform: translateX(-1px) rotate(-1deg); } 94% { transform: translateX(0); } }
 
 .hero-fade { opacity: 0; transform: translateY(10px); animation: hero-fade-in .7s cubic-bezier(.22, .61, .36, 1) forwards; }
@@ -488,6 +490,7 @@ h1 em { color: #8a9b55; font-style: normal; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero-fade { opacity: 1; transform: none; animation: none; }
+  .floating-contact { opacity: 1; transform: none; transition: none; }
   .floating-contact-btn { animation: none; }
   .coach-card img, .coach-name, .coach-name::after, .coach-role, .coach-shade { transition: none; }
   .reviews-track { transition: none; }

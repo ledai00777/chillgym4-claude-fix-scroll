@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Phone } from 'lucide-react';
 import { CONTACT_LINKS } from '@/lib/site';
 
@@ -11,8 +12,41 @@ function FacebookIcon({ size = 22 }: { size?: number }) {
 
 function ZaloIcon({ size = 22 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 12.83c.5.34.78.5.78.5s-.72.4-1.66.4c-.43 0-.9-.08-1.38-.3-.3-.14-.62-.32-.95-.54-.4-.27-.78-.6-1.1-.98-.4-.47-.7-1-.86-1.6-.1-.34-.14-.7-.14-1.07 0-.5.08-.95.22-1.34.14-.4.34-.74.58-1.02.24-.3.52-.54.82-.74.3-.2.62-.36.95-.46.34-.1.68-.16 1.02-.16.34 0 .66.05.96.14.3.1.58.22.82.38.24.16.46.34.64.54.18.2.34.4.46.6l-1.1.8c-.16-.24-.38-.46-.66-.64-.28-.18-.6-.27-.96-.27-.22 0-.44.04-.64.12-.2.08-.4.2-.56.34-.16.15-.3.32-.4.53-.1.2-.16.43-.16.68 0 .26.05.5.15.72.1.22.24.42.42.6.18.17.4.32.66.43.26.1.54.16.84.16.34 0 .66-.06.96-.18.3-.12.56-.28.78-.48l.4.4zm-8.3 3.95l-1.12-1.6-1.12 1.6H5.2l2.02-2.86L5.3 11.1h1.78l1.04 1.5L9.16 11.1h1.78l-1.92 2.82 2.02 2.86h-1.8z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M12 1.2C6.09 1.2 1.2 5.53 1.2 10.95c0 3.02 1.49 5.72 3.84 7.53v3.72l3.5-1.94c1.06.3 2.18.46 3.46.46 5.91 0 10.8-4.33 10.8-9.77C22.8 5.53 17.91 1.2 12 1.2z"
+        fill="#0068FF"
+      />
+      <path
+        d="M6.83 7.5h7.2c.28 0 .5.22.5.5v4.8c0 .28-.22.5-.5.5H9.7l-1.4 1.2v-1.2H6.83c-.28 0-.5-.22-.5-.5V8c0-.28.22-.5.5-.5z"
+        fill="#fff"
+      />
+      <path
+        d="M8.2 9.3h4.4M8.2 10.5h3.2M8.2 11.7h3.8"
+        stroke="#0068FF"
+        strokeWidth="0.7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function GoogleMapsIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.3 11.74 6.57 12.02a.45.45 0 0 0 .66 0C12 21.24 19.5 14.75 19.5 9.5 19.5 5.36 16.14 2 12 2z"
+        fill="#EA4335"
+      />
+      <path
+        d="M12 12.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+        fill="#fff"
+      />
+      <path
+        d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.3 11.74 6.57 12.02a.45.45 0 0 0 .66 0C12 21.24 19.5 14.75 19.5 9.5 19.5 5.36 16.14 2 12 2zm0 10.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+        fill="#34A853"
+        fillOpacity="0"
+      />
     </svg>
   );
 }
@@ -36,11 +70,51 @@ const widgets = [
     icon: Phone,
     external: false,
   },
+  {
+    label: 'Mở Google Maps',
+    href: CONTACT_LINKS.maps,
+    icon: GoogleMapsIcon,
+    external: true,
+  },
 ];
 
 function FloatingContact() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    let revealed = false;
+
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      setVisible(true);
+      cleanup();
+    };
+
+    const onScroll = () => reveal();
+    const onPointer = () => reveal();
+    const onKey = () => reveal();
+
+    const cleanup = () => {
+      window.removeEventListener('scroll', onScroll, true);
+      window.removeEventListener('pointerdown', onPointer, true);
+      window.removeEventListener('keydown', onKey, true);
+      window.removeEventListener('touchstart', onPointer, true);
+    };
+
+    window.addEventListener('scroll', onScroll, true);
+    window.addEventListener('pointerdown', onPointer, true);
+    window.addEventListener('keydown', onKey, true);
+    window.addEventListener('touchstart', onPointer, true);
+
+    return cleanup;
+  }, []);
+
   return (
-    <div className="floating-contact" aria-label="Liên hệ nhanh">
+    <div
+      className={`floating-contact ${visible ? 'is-visible' : ''}`}
+      aria-label="Liên hệ nhanh"
+    >
       {widgets.map(({ label, href, icon: Icon, external }) => (
         <a
           key={label}
