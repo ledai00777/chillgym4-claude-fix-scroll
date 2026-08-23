@@ -14,7 +14,7 @@ const reviews: Review[] = [
     name: 'KIM NGÂN',
     rating: 5,
     date: 'THÁNG 05, 2024',
-    review: 'Không gian sạch, thoáng và mọi người ở đây rất thân thiện. Mình tập đều hơn từ khi bắt đầu tại Chill Gym.',
+    review: 'Recoment cho phòng tập này: 100000000 điểm max luôn. Mình từng tập PT 1:1 bên 49kg. Từ 115g về 90kg trong 3 tháng. Nay chủ phòng mở thêm chi nhánh ở Lái Thiêu quyết định xuống tập mặc dù ở TDM. Không gian vẫn ưng với mình nhất, phòng sạch sẽ. PT không chèo kéo khách. Với mình bên này không seeding nhiều nhưng rất chất lượng. Feedback case nào sịn sò case đó nha 😍😍😍.',
     source: 'Google Review',
   },
   {
