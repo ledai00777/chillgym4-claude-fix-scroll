@@ -46,10 +46,10 @@ const reviews: Review[] = [
     source: 'Google Review',
   },
   {
-    name: 'ĐỨC ANH',
+    name: 'NGÂN H',
     rating: 5,
     date: 'THÁNG 12, 2023',
-    review: 'Đội ngũ nhiệt tình, không gian hiện đại và lịch tập linh hoạt. Rất phù hợp cho người mới bắt đầu.',
+    review: 'Mình tập ở Chill với gói tập Pt. Pt rất quan tâm và sát sao với học viên. Chất lượng dịch vụ phòng rất ok. Phù hợp để tập luyện và giải tỏa căng thẳng👍',
     source: 'Google Review',
   },
 ];
