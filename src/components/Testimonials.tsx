@@ -21,7 +21,7 @@ const reviews: Review[] = [
     name: 'PHÚC THỊNH',
     rating: 4,
     date: 'THÁNG 04, 2024',
-    review: 'Thiết bị đầy đủ, không quá đông và được hướng dẫn rất tận tình. Một nơi dễ duy trì thói quen tập luyện.',
+    review: 'Phòng dành cho phân khúc khách hàng cá nhân. Trang thiết bị hiện đại nhưng số lượng không nhiều. Tổng quan: hài lòng nhưng chưa đáp ứng được chất lượng một phòng Gym Private.',
     source: 'Google Review',
   },
   {
