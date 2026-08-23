@@ -25,10 +25,10 @@ const reviews: Review[] = [
     source: 'Google Review',
   },
   {
-    name: 'THẢO NGUYÊN',
+    name: 'LỘC NGÔ',
     rating: 5,
     date: 'THÁNG 03, 2024',
-    review: 'HLV luôn để ý đến từng buổi tập và điều chỉnh bài phù hợp. Mình cảm thấy tự tin hơn rất nhiều.',
+    review: 'Phòng đầy đủ tiện nghi, máy móc hiện đại, nên đến nhé.',
     source: 'Google Review',
   },
   {
