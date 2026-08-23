@@ -4,30 +4,27 @@ import { CONTACT_LINKS } from '@/lib/site';
 
 function FacebookIcon({ size = 22 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" />
-    </svg>
+    <img
+      src="https://res.cloudinary.com/iq7pkdiu/image/upload/v1787503249/5968771.png"
+      width={size}
+      height={size}
+      alt=""
+      aria-hidden="true"
+      style={{ objectFit: 'contain', display: 'block' }}
+    />
   );
 }
 
 function ZaloIcon({ size = 22 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M12 1.2C6.09 1.2 1.2 5.53 1.2 10.95c0 3.02 1.49 5.72 3.84 7.53v3.72l3.5-1.94c1.06.3 2.18.46 3.46.46 5.91 0 10.8-4.33 10.8-9.77C22.8 5.53 17.91 1.2 12 1.2z"
-        fill="#0068FF"
-      />
-      <path
-        d="M6.83 7.5h7.2c.28 0 .5.22.5.5v4.8c0 .28-.22.5-.5.5H9.7l-1.4 1.2v-1.2H6.83c-.28 0-.5-.22-.5-.5V8c0-.28.22-.5.5-.5z"
-        fill="#fff"
-      />
-      <path
-        d="M8.2 9.3h4.4M8.2 10.5h3.2M8.2 11.7h3.8"
-        stroke="#0068FF"
-        strokeWidth="0.7"
-        strokeLinecap="round"
-      />
-    </svg>
+    <img
+      src="https://res.cloudinary.com/iq7pkdiu/image/upload/v1787502707/Icon_of_Zalo.svg.webp"
+      width={size}
+      height={size}
+      alt=""
+      aria-hidden="true"
+      style={{ objectFit: 'contain', display: 'block' }}
+    />
   );
 }
 

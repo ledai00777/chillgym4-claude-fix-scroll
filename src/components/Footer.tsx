@@ -67,9 +67,8 @@ function Footer() {
           </Reveal>
 
           <h2 id="footer-heading" className="footer-slogan">
-            <Reveal delay={120}><span className="footer-slogan-line">RÈN THÂN.</span></Reveal>
-            <Reveal delay={240}><span className="footer-slogan-line">LUYỆN Ý.</span></Reveal>
-            <Reveal delay={360}><span className="footer-slogan-line footer-slogan-accent">ĐỔI ĐỜI.</span></Reveal>
+            <Reveal delay={120}><span className="footer-slogan-line">Hãy bắt đầu</span></Reveal>
+            <Reveal delay={240}><span className="footer-slogan-line footer-slogan-accent">Hôm nay</span></Reveal>
           </h2>
 
           <Reveal delay={480}>

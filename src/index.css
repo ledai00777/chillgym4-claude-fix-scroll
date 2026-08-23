@@ -173,7 +173,7 @@ h1 em { color: #8a9b55; font-style: normal; }
 .membership-options { display: grid; grid-template-columns: repeat(3, minmax(120px, 1fr)); flex: 1 1 470px; }
 .membership-option { display: flex; flex-direction: column; gap: 12px; min-height: 80px; padding: 0 24px; border-left: 1px solid rgba(242, 241, 236, .22); }
 .membership-option:first-child { padding-left: 0; border-left: 0; }
-.membership-option span, .offer-label, .offer-price span { color: #8a9b55; font-size: 10px; font-weight: 800; letter-spacing: .08em; }
+.membership-option span, .offer-label, .offer-price span { color: #8a9b55; font-size: 13px; font-weight: 800; letter-spacing: .08em; }
 .membership-option strong { color: #f2f1ec; font-size: clamp(25px, 3vw, 40px); font-weight: 800; line-height: 1; letter-spacing: -.06em; }
 .journey-cta { margin-left: auto; }
 .personal-training-section { background: #f7f6f2; color: #111111; padding: clamp(100px, 15vw, 190px) clamp(24px, 6vw, 80px) clamp(90px, 12vw, 170px); }
