@@ -3,6 +3,7 @@ import Coaches from '@/components/Coaches';
 import ContactMap from '@/components/ContactMap';
 import FAQ from '@/components/FAQ';
 import FloatingContact from '@/components/FloatingContact';
+import LoadingScreen from '@/components/LoadingScreen';
 import Footer from '@/components/Footer';
 import StartJourney from '@/components/StartJourney';
 import Testimonials from '@/components/Testimonials';
@@ -100,6 +101,7 @@ function useDragCarousel(maxSlide: number) {
 }
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [heroSlide, setHeroSlide] = useState(0);
   const [aboutSlide, setAboutSlide] = useState(0);
@@ -111,6 +113,13 @@ function App() {
 
   const femaleCarousel = useDragCarousel(femaleImages.length - 1);
   const maleCarousel = useDragCarousel(maleImages.length - 1);
+
+  useEffect(() => {
+    document.body.style.overflow = isLoading ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isLoading]);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -242,7 +251,9 @@ function App() {
   const maleCaseRef = useReveal<HTMLDivElement>();
 
   return (
-    <main className="site-page">
+    <>
+      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      <main className={`site-page ${isLoading ? 'is-loading' : ''}`}>
       <FloatingContact />
 
       <section className="hero-shell" id="top">
@@ -478,7 +489,8 @@ function App() {
       <FAQ />
       <ContactMap />
       <Footer />
-    </main>
+      </main>
+    </>
   );
 }
 

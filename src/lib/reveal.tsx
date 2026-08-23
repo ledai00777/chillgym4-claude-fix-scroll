@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode, type Ref } from 'react';
 
 export function useReveal<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
@@ -41,7 +41,7 @@ export function Reveal({
 }) {
   const ref = useReveal<HTMLElement>();
   return (
-    <Tag className={`reveal ${className}`} ref={ref} style={{ transitionDelay: `${delay}ms` }}>
+    <Tag className={`reveal ${className}`} ref={ref as React.Ref<HTMLDivElement>} style={{ transitionDelay: `${delay}ms` }}>
       {children}
     </Tag>
   );

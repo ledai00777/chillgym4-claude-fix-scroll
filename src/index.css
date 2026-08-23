@@ -87,8 +87,18 @@ h1 em { color: #8a9b55; font-style: normal; }
 @keyframes copy-in { from { opacity: 0; transform: translateY(-35%); } to { opacity: 1; transform: translateY(-42%); } }
 
 .site-page { background: #0b0c0a; overflow-x: hidden; }
-#giới-thiệu, #thay-đổi, #môi-trường-tập-luyện, #bat-dau-hanh-trinh, #personal-training, #dong-hanh-cung-ban, #địa-chỉ { scroll-margin-top: 104px; }
+.site-page.is-loading .reveal { opacity: 0 !important; transform: translateY(26px) !important; transition: none !important; }
+.site-page.is-loading .hero-fade { opacity: 0 !important; transform: translateY(10px) !important; animation: none !important; }
+.site-page.is-loading .environment-hero h2 { opacity: 0 !important; transform: translateY(18px) !important; animation: none !important; }
 
+.loading-screen { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; overflow: hidden; background: radial-gradient(circle at center, #171816 0%, #0c0d0b 38%, #050605 100%); opacity: 1; pointer-events: auto; transition: opacity .6s cubic-bezier(.22, .61, .36, 1); }
+.loading-screen.is-fading { opacity: 0; pointer-events: none; }
+.loading-dumbbell { position: relative; width: min(90vw, 820px); aspect-ratio: 3 / 2; overflow: hidden; }
+.loading-dumbbell img { position: absolute; inset: 0; display: block; width: clamp(560px, 58vw, 820px); max-width: none; height: auto; margin: auto; object-fit: contain; }
+.loading-dumbbell-base { filter: grayscale(1) brightness(.34) contrast(1.08); }
+.loading-dumbbell-progress { position: absolute; inset: 0; overflow: hidden; filter: drop-shadow(0 0 8px rgba(138, 155, 85, .16)); transition: clip-path .9s cubic-bezier(.22, .61, .36, 1); }
+.loading-dumbbell-progress img { filter: saturate(1.08) brightness(1.02); }
+#giới-thiệu, #thay-đổi, #môi-trường-tập-luyện, #bat-dau-hanh-trinh, #personal-training, #dong-hanh-cung-ban, #địa-chỉ { scroll-margin-top: 104px; }
 .floating-contact { position: fixed; z-index: 110; right: clamp(12px, 2vw, 28px); bottom: clamp(20px, 4vw, 36px); display: flex; flex-direction: column; gap: 12px; opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .6s cubic-bezier(.22, .61, .36, 1), transform .6s cubic-bezier(.22, .61, .36, 1); }
 .floating-contact.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .floating-contact-btn { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid rgba(138, 155, 85, .72); border-radius: 50%; background: rgba(11, 12, 10, .88); color: #f2f1ec; box-shadow: 0 8px 24px rgba(0, 0, 0, .2); backdrop-filter: blur(10px); transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease; }
@@ -491,6 +501,7 @@ h1 em { color: #8a9b55; font-style: normal; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .loading-screen, .loading-dumbbell-progress { transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero-fade { opacity: 1; transform: none; animation: none; }
   .floating-contact { opacity: 1; transform: none; transition: none; }
