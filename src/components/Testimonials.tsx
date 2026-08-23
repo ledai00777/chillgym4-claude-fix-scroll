@@ -18,8 +18,8 @@ const reviews: Review[] = [
     source: 'Google Review',
   },
   {
-    name: 'QUỐC HUY',
-    rating: 5,
+    name: 'PHÚC THỊNH',
+    rating: 4,
     date: 'THÁNG 04, 2024',
     review: 'Thiết bị đầy đủ, không quá đông và được hướng dẫn rất tận tình. Một nơi dễ duy trì thói quen tập luyện.',
     source: 'Google Review',
