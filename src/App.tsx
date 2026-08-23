@@ -2,10 +2,13 @@ import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type P
 import Coaches from '@/components/Coaches';
 import ContactMap from '@/components/ContactMap';
 import FAQ from '@/components/FAQ';
+import FloatingContact from '@/components/FloatingContact';
 import Footer from '@/components/Footer';
 import StartJourney from '@/components/StartJourney';
 import Testimonials from '@/components/Testimonials';
 import TrainingEnvironment from '@/components/TrainingEnvironment';
+import { useReveal } from '@/lib/reveal';
+import { ZALO_CTA_HREF } from '@/lib/site';
 import {
   ArrowDown,
   ArrowLeft,
@@ -232,8 +235,16 @@ function App() {
     navScrollSettleTimer.current = setTimeout(checkSettled, 100);
   };
 
+  const aboutIntroRef = useReveal<HTMLDivElement>();
+  const aboutCarouselRef = useReveal<HTMLDivElement>();
+  const transformIntroRef = useReveal<HTMLDivElement>();
+  const femaleCaseRef = useReveal<HTMLDivElement>();
+  const maleCaseRef = useReveal<HTMLDivElement>();
+
   return (
     <main className="site-page">
+      <FloatingContact />
+
       <section className="hero-shell" id="top">
         <header className={`site-header nav-${menuOpen ? 'visible' : navState}`}>
           <a className="brand" href="/" aria-label="Chill Gym trang chủ">
@@ -258,7 +269,7 @@ function App() {
               <Phone size={13} strokeWidth={1.6} />
               <span>070 495 2969</span>
             </a>
-            <a className="header-cta" href="#dang-ky">
+            <a className="header-cta" href={ZALO_CTA_HREF} target="_blank" rel="noreferrer">
               ĐĂNG KÝ TẬP THỬ
             </a>
             <button
@@ -290,37 +301,37 @@ function App() {
           </button>
 
           <div className="hero-copy">
-            <div className="google-review-badge" aria-label="Google 4.8 sao, 1278 đánh giá">
+            <div className="hero-fade hero-fade-1 google-review-badge" aria-label="Google 4.8 sao, 1278 đánh giá">
               <span>GOOGLE</span>
               <span className="google-review-stars" aria-hidden="true">★★★★★</span>
               <strong>4.8</strong>
               <span>·</span>
               <span>1278 đánh giá</span>
             </div>
-            <h1>
+            <h1 className="hero-fade hero-fade-2">
               TẬP LUYỆN
               <br />
               THEO CÁCH
               <br />
               <em>CỦA BẠN.</em>
             </h1>
-            <p className="hero-description">
+            <p className="hero-fade hero-fade-3 hero-description">
               Không gian hiện đại, thoáng mát với cây xanh, thiết bị cao cấp và cộng đồng năng lượng tích cực.
               Chill nhưng không chill với mục tiêu của bạn.
             </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#dang-ky">
+            <div className="hero-fade hero-fade-4 hero-actions">
+              <a className="button button-primary" href={ZALO_CTA_HREF} target="_blank" rel="noreferrer">
                 ĐĂNG KÝ TẬP THỬ <ArrowRight size={17} strokeWidth={1.7} />
               </a>
-              <a className="button button-secondary" href="#tu-van">
+              <a className="button button-secondary" href={ZALO_CTA_HREF} target="_blank" rel="noreferrer">
                 TƯ VẤN MIỄN PHÍ
               </a>
             </div>
           </div>
 
           <div className="feature-row" aria-label="Điểm nổi bật">
-            {features.map(({ label, icon: Icon }) => (
-              <div className="feature" key={label[0]}>
+            {features.map(({ label, icon: Icon }, index) => (
+              <div className={`hero-fade hero-fade-${5 + index} feature`} key={label[0]}>
                 <Icon className="feature-icon" size={25} strokeWidth={1.25} />
                 <span>
                   {label[0]}
@@ -353,7 +364,7 @@ function App() {
       </section>
 
       <section className="about-section" id="giới-thiệu" aria-labelledby="about-heading">
-        <div className="about-intro">
+        <div className="about-intro reveal" ref={aboutIntroRef}>
           <div>
             <p className="section-kicker">VỀ CHILL GYM</p>
             <h2 id="about-heading">TẬP HARD NHƯNG VẪN <em>"CHILL"</em></h2>
@@ -362,7 +373,8 @@ function App() {
         </div>
 
         <div
-          className="about-carousel"
+          className="about-carousel reveal"
+          ref={aboutCarouselRef}
           onPointerDown={handleAboutPointerDown}
           onPointerUp={handleAboutPointerUp}
           onPointerCancel={() => setAboutDragStart(null)}
@@ -393,12 +405,12 @@ function App() {
       </section>
 
       <section className="transform-section" id="thay-đổi" aria-labelledby="transform-heading">
-        <div className="transform-intro">
+        <div className="transform-intro reveal" ref={transformIntroRef}>
           <p className="section-kicker">KẾT QUẢ THỰC</p>
           <h2 id="transform-heading">HÀNH TRÌNH <em>THAY ĐỔI</em></h2>
         </div>
 
-        <article className="transform-case">
+        <article className="transform-case reveal" ref={femaleCaseRef}>
           <div className="case-label">
             <span className="case-number">CASE 01</span>
             <span className="case-gender">NỮ</span>
@@ -428,7 +440,7 @@ function App() {
           </div>
         </article>
 
-        <article className="transform-case">
+        <article className="transform-case reveal" ref={maleCaseRef}>
           <div className="case-label">
             <span className="case-number">CASE 02</span>
             <span className="case-gender">NAM</span>

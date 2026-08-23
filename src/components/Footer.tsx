@@ -1,4 +1,6 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode, type MouseEvent as ReactMouseEvent } from 'react';
+import { smoothScrollToSelector } from '@/lib/scroll';
+import { CONTACT_LINKS } from '@/lib/site';
 
 function useReveal<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
@@ -37,19 +39,23 @@ function Reveal({ children, delay, className = '' }: { children: ReactNode; dela
 
 const exploreLinks = [
   { label: 'Giới thiệu', href: '#giới-thiệu' },
-  { label: 'Huấn luyện viên', href: '#huấn-luyện-viên' },
+  { label: 'Huấn luyện viên', href: '#dong-hanh-cung-ban' },
   { label: 'Đánh giá', href: '#danh-gia' },
   { label: 'FAQ', href: '#câu-hỏi-thường-gặp' },
   { label: 'Các gói tập', href: '#bat-dau-hanh-trinh' },
 ];
 
 const socialLinks = [
-  { label: 'Facebook', href: 'https://facebook.com' },
-  { label: 'Instagram', href: 'https://instagram.com' },
-  { label: 'TikTok', href: 'https://tiktok.com' },
+  { label: 'Facebook', href: CONTACT_LINKS.messenger },
+  { label: 'Zalo', href: CONTACT_LINKS.zalo },
 ];
 
 function Footer() {
+  const handleFooterNavClick = (event: ReactMouseEvent<HTMLAnchorElement>, href: string) => {
+    event.preventDefault();
+    smoothScrollToSelector(href);
+  };
+
   return (
     <footer className="site-footer" id="footer" aria-labelledby="footer-heading">
       <div className="footer-transition" aria-hidden="true" />
@@ -80,7 +86,12 @@ function Footer() {
               <ul className="footer-links">
                 {exploreLinks.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href}>{link.label}</a>
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleFooterNavClick(e, link.href)}
+                    >
+                      {link.label}
+                    </a>
                   </li>
                 ))}
               </ul>

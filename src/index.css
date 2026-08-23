@@ -89,6 +89,25 @@ h1 em { color: #8a9b55; font-style: normal; }
 .site-page { background: #0b0c0a; overflow-x: hidden; }
 #giới-thiệu, #thay-đổi, #môi-trường-tập-luyện, #bat-dau-hanh-trinh, #personal-training, #dong-hanh-cung-ban, #địa-chỉ { scroll-margin-top: 104px; }
 
+.floating-contact { position: fixed; z-index: 110; top: 50%; right: clamp(12px, 2vw, 28px); display: flex; flex-direction: column; gap: 12px; transform: translateY(-50%); }
+.floating-contact-btn { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid rgba(138, 155, 85, .72); border-radius: 50%; background: rgba(11, 12, 10, .88); color: #f2f1ec; box-shadow: 0 8px 24px rgba(0, 0, 0, .2); backdrop-filter: blur(10px); transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease; }
+.floating-contact-btn:hover { background: #8a9b55; border-color: #8a9b55; color: #0b0c0a; transform: translateX(-3px); }
+.floating-contact-btn:nth-child(1) { animation: contact-wiggle 5.6s 1.4s ease-in-out infinite; }
+.floating-contact-btn:nth-child(2) { animation: contact-wiggle 5.6s 1.65s ease-in-out infinite; }
+.floating-contact-btn:nth-child(3) { animation: contact-wiggle 5.6s 1.9s ease-in-out infinite; }
+@keyframes contact-wiggle { 0%, 86%, 100% { transform: translateX(0); } 88% { transform: translateX(-2px) rotate(-2deg); } 90% { transform: translateX(2px) rotate(2deg); } 92% { transform: translateX(-1px) rotate(-1deg); } 94% { transform: translateX(0); } }
+
+.hero-fade { opacity: 0; transform: translateY(10px); animation: hero-fade-in .7s cubic-bezier(.22, .61, .36, 1) forwards; }
+.hero-fade-1 { animation-delay: .18s; }
+.hero-fade-2 { animation-delay: .3s; }
+.hero-fade-3 { animation-delay: .42s; }
+.hero-fade-4 { animation-delay: .54s; }
+.hero-fade-5 { animation-delay: .7s; }
+.hero-fade-6 { animation-delay: .8s; }
+.hero-fade-7 { animation-delay: .9s; }
+.hero-fade-8 { animation-delay: 1s; }
+@keyframes hero-fade-in { to { opacity: 1; transform: translateY(0); } }
+
 .about-section { position: relative; padding: clamp(60px, 9vw, 120px) clamp(24px, 6vw, 80px) clamp(50px, 7vw, 90px); background: #0b0c0a; overflow: hidden; }
 .about-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: clamp(36px, 5vw, 64px); }
 .section-kicker { margin: 0 0 14px; color: #8a9b55; font-size: 12px; font-weight: 800; letter-spacing: .08em; }
@@ -341,6 +360,8 @@ h1 em { color: #8a9b55; font-style: normal; }
 }
 
 @media (max-width: 760px) {
+  .floating-contact { right: 12px; gap: 10px; }
+  .floating-contact-btn { width: 44px; height: 44px; }
   .hero-shell { display: block; overflow: visible; }
   .hero-image-panel { min-height: 100svh; }
   .video-panel { min-height: min(145vw, 720px); }
@@ -466,6 +487,8 @@ h1 em { color: #8a9b55; font-style: normal; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  .hero-fade { opacity: 1; transform: none; animation: none; }
+  .floating-contact-btn { animation: none; }
   .coach-card img, .coach-name, .coach-name::after, .coach-role, .coach-shade { transition: none; }
   .reviews-track { transition: none; }
   .review-card { transition: none; }
