@@ -39,10 +39,10 @@ const reviews: Review[] = [
     source: 'Google Review',
   },
   {
-    name: 'NGỌC HÂN',
+    name: 'TAM NGUYEN',
     rating: 5,
     date: 'THÁNG 01, 2024',
-    review: 'Mình thích sự riêng tư và cách mọi người tập trung vào mục tiêu của mình. Trải nghiệm rất dễ chịu.',
+    review: 'Phòng tập siêu đầy đủ dụng cụ và thiết bị tập luyện chuyên nghiệp, máy lạnh mát mẻ. Đúng CHILL!',
     source: 'Google Review',
   },
   {
